@@ -112,8 +112,10 @@ img {
 
 /* ---------- Bagian Hero / Banner Utama ---------- */
 .hero {
-  background-color: #ffffff;
-  padding: 100px 20px;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('src/opat.png');
+  background-size: cover;
+  background-position: center;
+  padding: 140px 20px;
   text-align: center;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -121,14 +123,14 @@ img {
 .hero h2 {
   font-size: 42px;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   margin-bottom: 20px;
   letter-spacing: -1px;
 }
 
 .hero p {
   font-size: 18px;
-  color: #475569;
+  color: #e2e8f0;
   max-width: 650px;
   margin: 0 auto 35px; 
   line-height: 1.7;
