@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Portal Akses Sistem - SMKN 4 Bandung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+
+  <div class="login-box">
+    
+    <div class="login-header">
+      <!-- Harus Memakai Logo Yang Benar Di Folder -->
+      <a href="index.html">
+        <img src="src/logo4.png" alt="Gambar Tulisan Logo Institusi Sekolah SMKN 4" />
+      </a>
+      <h2>Portal Akun Nilai Akademik</h2>
+      <p>Silakan isi baris username nama akun dan form isian kotak kata password sandi Anda dengan benar sesuai id pendaftaran.</p>
+    </div>
+
+    <!-- Div Pesan Peringatan Dari JavaScript (Akan Menghilang Otomatis Jika Ngetik Ulang Berkat Koding JS) -->
+    <div class="alert-message" id="alertMessage"></div>
+    <div class="success-message" id="successMessage"></div>
+
+    <form id="formLoginJS">
+      
+      <!-- Kolom Kotak Pengisian Pertama -->
+      <div class="form-group">
+        <label for="usernameInput">Kolom Identitas Teks Username Admin</label>
+        <input type="text" id="usernameInput" placeholder="Ketik disini sebuah nama panggilan username id nya.." />
+        <!-- Pesan Teks Error Mini Tepat Dibawah Garis Box Input -->
+        <span class="error-msg" id="errorUser"></span>
+      </div>
+
+      <!-- Kolom Kotak Pengisian Kedua -->
+      <div class="form-group">
+        <label for="passwordInput">Ketik Label Baris Teks Password Rahasia</label>
+        <input type="password" id="passwordInput" placeholder="Ayo mulai ketikan angka sebuah kode password sandinya.." />
+        <!-- Pesan Teks Error Mini Tepat Dibawah Garis Box Input -->
+        <span class="error-msg" id="errorPass"></span>
+      </div>
+
+      <!-- Tombol Enter Pencet Submit Pengecekan Fungsi JS Check Variable Text Diingat Terus Jangan Kosong Valuenya -->
+      <button type="submit" class="btn-submit">Pencet Submit Login Masuk Ke Sistem Beranda Utama Dashboard E-Learning</button>
+
+    </form>
+
+    <a href="index.html" class="back-link">Batal Login Keluar Kembali Menuju Halaman Muka Beranda Awal Informasi Welcome Screen Tadi</a>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+/* style.css - UI Desktop Profesional & Elegan (Clean Design) */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Menggunakan font elegan */
+  line-height: 1.6;
+  background-color: #f8fafc; /* Abu kebiruan super terang, nyaman di mata */
+  color: #334155; /* Teks abu-abu gelap, tidak hitam kontras yang menusuk mata */
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: #2563eb; /* Biru korporat */
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Container Utama Halaman ---------- */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Lebih lebar supaya elegan di layar besar */
+  margin: 0 auto; 
+  padding: 0 20px;
+}
+
+/* ---------- Header / Navigasi Atas ---------- */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0; /* Garis bawah super tipis bersih */
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02); /* Bayangan tak kasat mata */
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+}
+
+.nav-logo-img {
+  width: 48px;
+}
+
+.nav-brand h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a; 
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.nav-brand p {
+  font-size: 12px;
+  color: #64748b; 
+  margin: 0;
+  font-weight: 500;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px; /* Kesan longgar & luas */
+}
+
+.nav-menu li a {
+  color: #475569;
+  font-weight: 500;
+  font-size: 14.5px;
+}
+
+.nav-menu li a:hover {
+  color: #2563eb; 
+}
+
+.btn-login {
+  background-color: #2563eb;
+  color: #ffffff !important;
+  padding: 10px 24px;
+  border-radius: 6px; 
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+  background-color: #1d4ed8;
+}
+
+/* ---------- Bagian Hero / Banner Utama ---------- */
+.hero {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #475569;
+  max-width: 650px;
+  margin: 0 auto 35px; 
+  line-height: 1.7;
+}
+
+.hero .btn-primary {
+  background-color: #2563eb;
+  color: #ffffff !important;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-block; 
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+}
+
+.hero .btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* ---------- Judul Setiap Section Pembatas ---------- */
+.section-title {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- Kartu Bagian Jurusan ---------- */
+#jurusan {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* Layout longgar mempermudah pernafasan grid */
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff; 
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  width: 31%; 
+  min-width: 280px; 
+  padding: 32px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: left; /* Teks rata kiri tampak lebih profesional */
+}
+
+/* Efek Hover Elegan (bukan gradien aneh) */
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+.card h3 {
+  color: #0f172a;
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 14.5px;
+  color: #475569;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.badge {
+  background-color: #eff6ff; 
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 20px; /* Bentuk pil / kapsul modern */
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* ---------- Papan Informasi / Berita Terbaru ---------- */
+.info-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Perapihan layout baca berita */
+.info-box {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2563eb; 
+  padding: 24px 30px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-box h4 {
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.info-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.info-box p:last-child {
+  color: #475569;
+  font-size: 15px;
+}
+
+/* ---------- Grid Gambar Kotak Elegan ---------- */
+#galeri {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.gallery-card {
+  width: 31%;
+  min-width: 250px;
+  height: 220px;
+  background-color: #f1f5f9; 
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden; /* Bikin ujung foto membulat mengikuti border-radius parent */
+  border: 1px solid #e2e8f0;
+}
+
+.gallery-card .gal-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.gallery-card .gal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Label nama di atas foto transparan */
+.gallery-card .gal-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(15,23,42,0.8), transparent); /* Elegan soft fade */
+  color: #ffffff;
+  padding: 24px 15px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: #0f172a; /* Bukan biru, tapi Dark Slate / Midnight modern */
+  color: #e2e8f0;
+  padding: 80px 0 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-col {
+  width: 30%;
+  min-width: 260px;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+  list-style: none; 
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-col p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  padding-top: 25px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ===================================================
+   HALAMAN LOGIN (Lebih Bersih dan Profesional)
+   =================================================== */
+.login-body {
+  background-color: #f8fafc; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 48px;
+  border-radius: 12px; 
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); /* Bayangan luas tapi super soft */
+  width: 100%;
+  max-width: 440px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.login-header img {
+  width: 56px;
+  margin-bottom: 16px;
+}
+
+.login-header h2 {
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+.login-header p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%; 
+  padding: 14px;
+  border: 1px solid #cbd5e1; 
+  border-radius: 6px; /* modern slight radius */
+  font-size: 15px;
+  color: #0f172a;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+  font-family: inherit; /* paksa ikut inter font */
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+  background-color: #ffffff;
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.error-msg {
+  color: #dc2626; /* Merah elegan tidak menohok */
+  font-size: 13px;
+  display: block;
+  margin-top: 6px;
+}
+
+.alert-message {
+  padding: 14px 16px;
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  display: none; 
+}
+
+.success-message {
+  padding: 14px 16px;
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  display: none;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer; 
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #1d4ed8;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Responsif Mobile Sederhana */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; 
+  }
+  
+  .card, .gallery-card, .footer-col {
+    width: 100%; 
+  }
+  
+  .hero {
+    padding: 60px 20px;
+  }
+}
