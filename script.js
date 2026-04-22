@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (usernameTxt === "" && passwordTxt === "") {
         alert("Username dan password masih kosong!");
-        alertMessage.textContent = "Username dan kata password sandi Anda wajib harus teliti diisi secara penuh!";
+        alertMessage.textContent = "Silakan isi username dan password Anda.";
         alertMessage.style.display = "block"; 
-        errorUser.textContent = "Baris tulisan username label textbox form tag div kolom ini tidak boleh dibiarkan tidak terisi kosong kosong kosong spasi string string";
-        errorPass.textContent = "Kotak tulisan pasword isian sandi rahasia ini string kosong tab kosong tabulator char code spasi pun dilarang keras tidak boleh diijinkan tab tidak ada isi hurup angkanya!";
+        errorUser.textContent = "Username wajib diisi.";
+        errorPass.textContent = "Password wajib diisi.";
         
         valid = false; 
         return; 
@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (usernameTxt === "") {
         alert("Username masih kosong!");
-        alertMessage.textContent = "Tolong perhatikan lengkapi usahakan anda teliti pahami isi username box textbox ini dengan ngetik di input keyboard huruf huruf name akun anda!";
+        alertMessage.textContent = "Username belum diisi.";
         alertMessage.style.display = "block";  
-        errorUser.textContent = "Maaf kolom teks input box baris name id textbox var form text input kotak form div form-group ini ngga bisa dikosongan anda mesti isi lengkapi wajib fardhu lengkapi ketik nulis ketikan sesuatu minimal text user id npm mahasiswa tugas dsb!";
+        errorUser.textContent = "Username wajib diisi.";
         
         usernameInput.focus();
 
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (passwordTxt === "") {
         alert("Password masih kosong!");
-        alertMessage.textContent = "Aduh sayangnya tolong Anda ngetik rahasia isian form password sandi kode ketik nomor form isian let kotak nya!";
+        alertMessage.textContent = "Password belum diisi.";
         alertMessage.style.display = "block";
-        errorPass.textContent = "Kotak isian kode kunci gembok pasword form input textbox HTML tag ini ngga bisa anda biar cuma dipajang ditonton ajah kudu wajiba diisi baris kalimat secret key text karakter sandi keamanan rahasia login kamu formnya!";
+        errorPass.textContent = "Password wajib diisi.";
         
         passwordInput.focus(); 
         
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (valid === true) {
-        successMessage.textContent = "Yey! Proses pengecekan Logika Verifikasi Pengecekan Sistem Validasi Login berhasil sangat mantap! Anda sebentar akan dialihkan diarahkan dituntun dilarikan masuk loading masuk sistem index.";
+        successMessage.textContent = "Login berhasil! Anda akan dialihkan ke dashboard.";
         successMessage.style.display = "block"; 
         
         alert("Login berhasil! Selamat datang, " + usernameTxt);
@@ -131,5 +131,78 @@ document.addEventListener('DOMContentLoaded', function () {
   revealElements.forEach(function(el) {
     scrollObserver.observe(el);
   });
+
+  var mobileToggle = document.getElementById('mobileToggle');
+  var navMenu = document.getElementById('navMenu');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+  }
+
+  var togglePassword = document.getElementById('togglePassword');
+  var passwordInputEl = document.getElementById('passwordInput');
+  if (togglePassword && passwordInputEl) {
+    togglePassword.addEventListener('click', function() {
+      var type = passwordInputEl.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInputEl.setAttribute('type', type);
+      this.textContent = type === 'password' ? 'Tampilkan' : 'Sembunyikan';
+    });
+  }
+
+  var counters = document.querySelectorAll('.counter');
+  var counterObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var counter = entry.target;
+        var updateCount = function() {
+          var target = +counter.getAttribute('data-target');
+          var count = +counter.innerText;
+          var speed = 200; 
+          var inc = target / speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(function(counter) {
+    counterObserver.observe(counter);
+  });
+
+  var sections = document.querySelectorAll('.hero, #jurusan, #info, #galeri');
+  var navLinks = document.querySelectorAll('.nav-menu li a');
+
+  var scrollSpy = function() {
+    var scrollPos = window.scrollY || document.documentElement.scrollTop;
+    
+    sections.forEach(function(section) {
+      if (scrollPos >= section.offsetTop - window.innerHeight / 3 && 
+          scrollPos < section.offsetTop + section.offsetHeight) {
+        var id = section.getAttribute('id');
+        if (!id && section.classList.contains('hero')) id = 'beranda';
+        
+        navLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  if (sections.length > 0) {
+    window.addEventListener('scroll', scrollSpy);
+    scrollSpy();
+  }
+
 });
 
