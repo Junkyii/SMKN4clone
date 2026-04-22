@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Cek jika user sudah login di simulasi localStorage
   var loggedInAdmin = localStorage.getItem("loggedInAdmin");
   var btnLogin = document.querySelector('.btn-login');
   var logoutLi = document.getElementById('logoutLi');
@@ -94,25 +93,43 @@ document.addEventListener('DOMContentLoaded', function () {
   
   if (loggedInAdmin && btnLogin) {
     btnLogin.textContent = "Admin: " + loggedInAdmin;
-    btnLogin.href = "#"; // Nonaktifkan link buat kesederhanaan
+    btnLogin.href = "#"; 
 
-    // Tampilkan tombol logout
     if (logoutLi && btnLogout) {
       logoutLi.style.display = "inline-block";
       
-      // Fungsi ketika tombol logout diklik
       btnLogout.addEventListener('click', function(event) {
-        event.preventDefault(); // Cegah fungsi klik asli link ke '#'
+        event.preventDefault(); 
         
-        // Hapus data login dari memori browser
         localStorage.removeItem("loggedInAdmin");
         
-        // Beri tahu user kalau log out berhasil
         alert("Anda telah berhasil Log Out dari akun Admin!");
         
-        // Refresh auto halamannya biar tombol merahnya hilang lagi
         window.location.reload();
       });
     }
   }
+
+  var revealElements = document.querySelectorAll('.card, .info-box, .gallery-card, .section-title');
+  
+  revealElements.forEach(function(el) {
+    el.classList.add('scroll-reveal');
+  });
+
+  var scrollObserver = new IntersectionObserver(function(entries, obs) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        obs.unobserve(entry.target); 
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  revealElements.forEach(function(el) {
+    scrollObserver.observe(el);
+  });
 });
+
