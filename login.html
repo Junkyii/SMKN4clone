@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Portal Akses Sistem - SMKN 4 Bandung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+
+  <div class="login-box">
+    
+    <div class="login-header">
+      <a href="index.html">
+        <img src="src/logo4.png" alt="Logo SMKN 4 Bandung" />
+      </a>
+      <h2>Login Admin</h2>
+      <p>Silakan masukkan username dan password Anda untuk masuk ke sistem.</p>
+    </div>
+
+    <div class="alert-message" id="alertMessage"></div>
+    <div class="success-message" id="successMessage"></div>
+
+    <form id="formLoginJS">
+      
+      <div class="form-group">
+        <label for="usernameInput">Username</label>
+        <input type="text" id="usernameInput" placeholder="Masukkan username..." />
+        <span class="error-msg" id="errorUser"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="passwordInput" placeholder="Masukkan password..." />
+          <span class="password-toggle" id="togglePassword">Tampilkan</span>
+        </div>
+        <span class="error-msg" id="errorPass"></span>
+      </div>
+
+      <button type="submit" class="btn-submit">Login</button>
+
+    </form>
+
+    <a href="index.html" class="back-link">Kembali ke Halaman Beranda</a>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
