@@ -68,7 +68,9 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pendaftaran Siswa — SMKN 4 Bandung</title>
   <meta name="description" content="Halaman pendaftaran dan data siswa SMKN 4 Bandung." />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css?v=3" />
   <style>
     .page-wrapper {
       min-height: 100vh;
