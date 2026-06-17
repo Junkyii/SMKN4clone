@@ -16,8 +16,8 @@
       <a href="index.html">
         <img src="src/logo4.png" alt="Logo SMKN 4 Bandung" />
       </a>
-      <h2>Login Admin</h2>
-      <p>Silakan masukkan username dan password Anda untuk masuk ke sistem.</p>
+      <h2>Welcome Back</h2>
+      <p>Masukkan username dan password untuk melanjutkan</p>
     </div>
 
     <div class="alert-message" id="alertMessage"></div>
@@ -25,17 +25,15 @@
 
     <form id="formLoginJS">
       
-      <div class="form-group">
-        <label for="usernameInput">Username</label>
-        <input type="text" id="usernameInput" placeholder="Masukkan username..." />
+      <div class="form-group user-group">
+        <input type="text" id="usernameInput" placeholder="Username" />
         <span class="error-msg" id="errorUser"></span>
       </div>
 
-      <div class="form-group">
-        <label for="passwordInput">Password</label>
+      <div class="form-group pass-group">
         <div class="password-wrapper">
-          <input type="password" id="passwordInput" placeholder="Masukkan password..." />
-          <span class="password-toggle" id="togglePassword">Tampilkan</span>
+          <input type="password" id="passwordInput" placeholder="Password" />
+          <span class="password-toggle" id="togglePassword">Show</span>
         </div>
         <span class="error-msg" id="errorPass"></span>
       </div>
@@ -44,7 +42,7 @@
 
     </form>
 
-    <a href="index.html" class="back-link">Kembali ke Halaman Beranda</a>
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
 
   </div>
 
