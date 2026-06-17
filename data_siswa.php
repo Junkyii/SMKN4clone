@@ -78,37 +78,23 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
     }
 
     .page-header {
-      background: linear-gradient(135deg, var(--clr-text) 0%, #44403c 100%);
-      padding: 64px 24px 48px;
+      background: var(--clr-surface);
+      border-bottom: 1px solid var(--clr-border-light);
+      padding: 48px 24px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
-      background-size: 60px;
-      opacity: 0.5;
     }
     .page-header h2 {
       font-family: var(--font-serif);
-      color: #fff;
-      font-size: 32px;
+      color: var(--clr-text);
+      font-size: 28px;
       font-weight: 500;
       margin-bottom: 6px;
       letter-spacing: -0.5px;
-      position: relative;
     }
     .page-header p {
-      color: rgba(255,255,255,0.6);
+      color: var(--clr-text-muted);
       font-size: 14px;
       font-weight: 400;
-      position: relative;
     }
 
     .content-container {
