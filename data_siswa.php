@@ -74,86 +74,103 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
   <style>
     .page-wrapper {
       min-height: 100vh;
-      background: var(--clr-bg);
+      background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
     }
 
     .page-header {
-      background: var(--clr-text);
-      padding: 80px 24px 56px;
+      background: linear-gradient(135deg, var(--clr-text) 0%, #44403c 100%);
+      padding: 64px 24px 48px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+      background-size: 60px;
+      opacity: 0.5;
     }
     .page-header h2 {
       font-family: var(--font-serif);
       color: #fff;
-      font-size: 34px;
-      font-weight: 400;
-      margin-bottom: 8px;
-      letter-spacing: -0.3px;
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+      position: relative;
     }
     .page-header p {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.6);
       font-size: 14px;
       font-weight: 400;
+      position: relative;
     }
 
     .content-container {
-      max-width: 880px;
-      margin: -32px auto 0;
+      max-width: 720px;
+      margin: -24px auto 0;
       padding: 0 24px 64px;
       position: relative;
       z-index: 10;
     }
 
     .alert {
-      padding: 14px 20px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
       font-weight: 500;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      animation: fadeIn 0.4s ease;
+      gap: 8px;
+      animation: slideDown 0.3s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .alert-success {
       background: var(--clr-success-soft);
       color: var(--clr-success);
-      border: 1px solid #bbf7d0;
+      border-left: 3px solid var(--clr-success);
     }
     .alert-error {
       background: var(--clr-danger-soft);
       color: var(--clr-danger);
-      border: 1px solid #fecaca;
+      border-left: 3px solid var(--clr-danger);
     }
 
     .form-card {
       background: var(--clr-surface);
       border: 1px solid var(--clr-border);
-      border-radius: var(--radius-lg);
-      padding: 40px;
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
       margin-bottom: 32px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .form-card h3 {
       font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 20px;
+      font-weight: 500;
       color: var(--clr-text);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .form-card .form-subtitle {
       color: var(--clr-text-muted);
       font-size: 13px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      line-height: 1.5;
     }
 
     .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .form-grid .full-width {
-      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .input-group {
@@ -164,8 +181,8 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
       font-weight: 600;
       font-size: 13px;
       color: var(--clr-text);
-      margin-bottom: 6px;
-      letter-spacing: -0.1px;
+      margin-bottom: 7px;
+      letter-spacing: -0.2px;
     }
     .input-group label .required {
       color: var(--clr-danger);
@@ -174,9 +191,9 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
     .input-group input,
     .input-group select,
     .input-group textarea {
-      padding: 11px 14px;
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--radius-md);
       font-size: 14px;
       font-family: var(--font-sans);
       color: var(--clr-text);
@@ -187,103 +204,121 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
     .input-group input:focus,
     .input-group select:focus,
     .input-group textarea:focus {
-      border-color: var(--clr-highlight);
-      box-shadow: var(--shadow-focus);
+      border-color: var(--clr-text);
+      box-shadow: 0 0 0 3px rgba(28,25,23,0.08);
     }
     .input-group input::placeholder,
     .input-group textarea::placeholder {
       color: var(--clr-text-muted);
+      font-weight: 400;
     }
     .input-group textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 90px;
+      font-family: var(--font-sans);
+      line-height: 1.6;
     }
     .input-group select {
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2378716c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231c1917' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
+      background-position: right 16px center;
+      padding-right: 42px;
+      font-weight: 500;
     }
 
     .radio-group {
-      display: flex;
-      gap: 12px;
-      margin-top: 2px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
     }
     .radio-option {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       cursor: pointer;
-      padding: 10px 16px;
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--radius-md);
       transition: all var(--transition);
-      flex: 1;
+      background: var(--clr-surface);
     }
     .radio-option:hover {
-      border-color: var(--clr-text-secondary);
+      border-color: var(--clr-text);
+      background: var(--clr-surface-alt);
+    }
+    .radio-option:has(input:checked) {
+      border-color: var(--clr-text);
+      background: var(--clr-text);
+    }
+    .radio-option:has(input:checked) span {
+      color: #fff;
+      font-weight: 600;
     }
     .radio-option input[type="radio"] {
-      accent-color: var(--clr-text);
-      width: 16px;
-      height: 16px;
+      accent-color: #fff;
+      width: 18px;
+      height: 18px;
       cursor: pointer;
-    }
-    .radio-option input[type="radio"]:checked + span {
-      color: var(--clr-text);
-      font-weight: 600;
     }
     .radio-option span {
       font-size: 14px;
-      color: var(--clr-text-secondary);
+      color: var(--clr-text);
       font-weight: 500;
     }
 
     .btn-daftar {
-      background: var(--clr-accent);
+      background: var(--clr-text);
       color: #fff;
       border: none;
-      padding: 12px 32px;
-      border-radius: var(--radius-sm);
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
       font-size: 14px;
       font-weight: 600;
       font-family: var(--font-sans);
       cursor: pointer;
       transition: all var(--transition);
-      margin-top: 8px;
+      margin-top: 12px;
+      width: 100%;
+      letter-spacing: -0.2px;
     }
     .btn-daftar:hover {
       background: var(--clr-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(28,25,23,0.15);
+    }
+    .btn-daftar:active {
+      transform: translateY(0);
     }
 
     .table-card {
       background: var(--clr-surface);
       border: 1px solid var(--clr-border);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .table-card h3 {
       font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 20px;
+      font-weight: 500;
       color: var(--clr-text);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .table-card .table-subtitle {
       color: var(--clr-text-muted);
       font-size: 13px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .table-responsive {
       overflow-x: auto;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--clr-border-light);
     }
 
     .data-table {
@@ -295,14 +330,14 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
       background: var(--clr-surface-alt);
     }
     .data-table thead th {
-      color: var(--clr-text-secondary);
+      color: var(--clr-text-muted);
       font-weight: 600;
       padding: 12px 16px;
       text-align: left;
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid var(--clr-border);
+      letter-spacing: 0.8px;
+      border-bottom: 1px solid var(--clr-border-light);
       white-space: nowrap;
     }
     .data-table tbody tr {
@@ -313,20 +348,22 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
       border-bottom: none;
     }
     .data-table tbody tr:hover {
-      background: var(--clr-surface-alt);
+      background: rgba(245,245,244,0.5);
     }
     .data-table tbody td {
-      padding: 12px 16px;
+      padding: 14px 16px;
       color: var(--clr-text);
       vertical-align: middle;
+      font-size: 13px;
     }
 
     .badge-gender {
       display: inline-block;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 100px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.2px;
     }
     .badge-l {
       background: var(--clr-highlight-soft);
@@ -339,16 +376,16 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
 
     .empty-state {
       text-align: center;
-      padding: 48px 20px;
+      padding: 56px 20px;
       color: var(--clr-text-muted);
     }
     .empty-state .empty-icon {
-      font-size: 36px;
-      margin-bottom: 12px;
-      opacity: 0.5;
+      font-size: 32px;
+      margin-bottom: 16px;
+      opacity: 0.3;
     }
     .empty-state p {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--clr-text-secondary);
     }
@@ -356,12 +393,12 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
       font-size: 13px;
       color: var(--clr-text-muted);
       display: block;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .nav-back-container {
       text-align: center;
-      margin-top: 32px;
+      margin-top: 36px;
     }
     .nav-back {
       display: inline-flex;
@@ -370,30 +407,36 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
       color: var(--clr-text-muted);
       font-weight: 500;
       font-size: 14px;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--clr-border);
+      padding: 10px 24px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--clr-border);
       background: var(--clr-surface);
       transition: all var(--transition);
     }
     .nav-back:hover {
       color: var(--clr-text);
       border-color: var(--clr-text);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     @media (max-width: 768px) {
-      .form-grid {
+      .radio-group {
         grid-template-columns: 1fr;
+        gap: 8px;
       }
       .form-card, .table-card {
-        padding: 24px 20px;
+        padding: 28px 20px;
+        border-radius: var(--radius-lg);
+      }
+      .content-container {
+        max-width: 100%;
+      }
+      .page-header {
+        padding: 48px 20px 40px;
       }
       .page-header h2 {
-        font-size: 26px;
-      }
-      .radio-group {
-        flex-direction: column;
-        gap: 8px;
+        font-size: 24px;
       }
     }
   </style>
@@ -479,7 +522,7 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
               </div>
             </div>
 
-            <div class="input-group full-width">
+            <div class="input-group">
               <label for="alamat">Alamat <span class="required">*</span></label>
               <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap" required></textarea>
             </div>
@@ -489,9 +532,8 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
               <input type="password" id="password" name="password" placeholder="Buat password untuk login" required minlength="4" />
             </div>
 
-            <div class="input-group" style="justify-content: flex-end;">
-              <button type="submit" class="btn-daftar">Daftarkan Siswa →</button>
-            </div>
+            <button type="submit" class="btn-daftar">Daftarkan Siswa</button>
+
           </div>
         </form>
       </div>
