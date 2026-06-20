@@ -74,7 +74,7 @@ $data_siswa = mysqli_query($koneksi, "SELECT * FROM siswa ORDER BY id DESC");
   <style>
     .page-wrapper {
       min-height: 100vh;
-      background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
     }
 
     .page-header {

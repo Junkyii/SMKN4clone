@@ -1,35 +1,35 @@
 /* ================================================
-   SMKN 4 Bandung — Minimal & Elegant Design System
+   SMKN 4 Bandung — Modern Blue & Minimal Design
    ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
-  --clr-bg: #fafaf9;
+  --clr-bg: #f8fafc;
   --clr-surface: #ffffff;
-  --clr-surface-alt: #f5f5f4;
-  --clr-border: #e7e5e4;
-  --clr-border-light: #f0eeec;
-  --clr-text: #1c1917;
-  --clr-text-secondary: #78716c;
-  --clr-text-muted: #a8a29e;
-  --clr-accent: #292524;
-  --clr-accent-hover: #44403c;
-  --clr-highlight: #2563eb;
+  --clr-surface-alt: #f1f5f9;
+  --clr-border: #e2e8f0;
+  --clr-border-light: #f8fafc;
+  --clr-text: #0f172a;
+  --clr-text-secondary: #475569;
+  --clr-text-muted: #94a3b8;
+  --clr-accent: #2563eb;
+  --clr-accent-hover: #1d4ed8;
+  --clr-highlight: #3b82f6;
   --clr-highlight-soft: #eff6ff;
-  --clr-success: #16a34a;
-  --clr-success-soft: #f0fdf4;
-  --clr-danger: #dc2626;
+  --clr-success: #10b981;
+  --clr-success-soft: #ecfdf5;
+  --clr-danger: #ef4444;
   --clr-danger-soft: #fef2f2;
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-serif: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
-  --shadow-focus: 0 0 0 3px rgba(37,99,235,0.12);
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.12);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -84,10 +84,10 @@ img {
 
 /* ======== Navbar ======== */
 .navbar {
-  background: rgba(250,250,249,0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--clr-border-light);
+  border-bottom: 1px solid var(--clr-border);
   padding: 0;
   position: sticky;
   top: 0;
@@ -213,7 +213,7 @@ img {
 
 /* ======== Hero ======== */
 .hero {
-  background-image: linear-gradient(rgba(28,25,23,0.75), rgba(28,25,23,0.85)), url('src/opat.png');
+  background-image: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)), url('src/opat.png');
   background-size: cover;
   background-position: center;
   padding: 140px 24px 120px;
@@ -503,7 +503,7 @@ img {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to top, rgba(28,25,23,0.85), transparent);
+  background: linear-gradient(to top, rgba(15,23,42,0.85), transparent);
   color: #fff;
   padding: 36px 20px 16px;
   font-size: 14px;
@@ -580,8 +580,8 @@ footer::before {
 
 /* ======== Login Page ======== */
 .login-body {
-  background: #0a0a0a;
-  background-image: radial-gradient(circle at center, #171717 0%, #0a0a0a 100%);
+  background: #020617;
+  background-image: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -604,8 +604,8 @@ footer::before {
 }
 
 .login-box {
-  background: #121212;
-  border: 1px solid #262626;
+  background: #0f172a;
+  border: 1px solid #1e293b;
   padding: 48px 40px;
   border-radius: 20px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -849,7 +849,7 @@ footer::before {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(250,250,249,0.98);
+    background: rgba(255,255,255,0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 16px 24px;
